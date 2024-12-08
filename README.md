@@ -1,4 +1,4 @@
-# VEHICLE SEARCH TEST
+# VEHICLE SEARCH TEST challenge
 
 ## Setup
 
