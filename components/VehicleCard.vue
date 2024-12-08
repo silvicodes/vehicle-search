@@ -139,13 +139,15 @@ export default {
   flex-direction: column;
   gap: 40px;
   background: #fff;
+  overflow-x: hidden;
 }
 
 .vehicle-row {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
   flex-wrap: wrap;
+  margin-top: 3%;
 }
 
 .vehicle-item {
@@ -153,8 +155,9 @@ export default {
   background: #FFFFFF;
   border-radius: 12px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 16px;
+  padding: 10px;
   transition: all 0.3s ease-in-out;
+  flex-shrink: 0;
 }
 
 .vehicle-image-container {
@@ -188,14 +191,14 @@ export default {
 
 .vehicle-title {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
   color: #212121;
   margin-bottom: 8px;
 }
 
 .vehicle-model {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 300;
   color: #55595D;
   margin-bottom: 12px;
 }
