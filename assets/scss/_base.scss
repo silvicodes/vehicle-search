@@ -14,3 +14,210 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+// Base main page
+
+.vehicle-card {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+.vehicle-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 3%;
+}
+
+.vehicle-item {
+  width: 300px;
+  background: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+  flex-shrink: 0;
+}
+
+.vehicle-image-container {
+  position: relative;
+}
+
+.vehicle-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.used-badge, .new-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #FFF;
+  background-color: #3F3A50;
+}
+
+.new-badge {
+  background-color: #3F3A50;
+}
+
+.vehicle-info {
+  margin-top: 16px;
+}
+
+.vehicle-title {
+  font-size: 18px;
+  font-weight: 400;
+  color: #212121;
+  margin-bottom: 8px;
+}
+
+.vehicle-model {
+  font-size: 16px;
+  font-weight: 300;
+  color: #55595D;
+  margin-bottom: 12px;
+}
+
+.vehicle-description {
+  font-size: 14px;
+  color: #757575;
+}
+
+.bold-price {
+  font-weight: bold;
+  color: #212121;
+}
+
+.normal-price {
+  font-weight: normal;
+  color: #757575;
+}
+
+.vehicle-finance {
+  font-size: 14px;
+  font-weight: normal;
+  color: #7572FF;
+}
+
+.strike-price {
+  font-size: 16px;
+  color: #000000;
+  text-decoration: none;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+.highlight-red {
+  color: red !important;
+  text-decoration: line-through !important;
+}
+
+.value-your-car-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.value-your-car {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 273px;
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid var(--Framework-Borders, #D1D6E0);
+  background: var(--Framework-Light, #F6F7FB);
+}
+
+.value-your-car label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.value-your-car input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.value-your-car button {
+  padding: 10px 20px;
+  background-color: #7572FF;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.value-your-car button:hover {
+  background-color: #5752D6;
+}
+
+/* Media Query for mobile devices */
+@media (max-width: 768px) {
+  .vehicle-row {
+    gap: 10px;
+  }
+
+  .vehicle-item {
+    width: 45%;
+    padding: 12px;
+  }
+
+  .vehicle-title {
+    font-size: 16px;
+  }
+
+  .vehicle-model {
+    font-size: 14px;
+  }
+
+  .vehicle-description {
+    font-size: 12px;
+  }
+
+  .value-your-car-container {
+    margin-top: 10px;
+  }
+
+  .value-your-car {
+    padding: 10px;
+  }
+
+  .value-your-car button {
+    padding: 8px 16px;
+  }
+}
+
+/* Media Query for very small devices (compact phones) */
+@media (max-width: 480px) {
+  .vehicle-item {
+    width: 100%;
+    padding: 8px;
+  }
+
+  .vehicle-row {
+    flex-direction: column;
+  }
+
+  .vehicle-title {
+    font-size: 14px;
+  }
+
+  .vehicle-description {
+    font-size: 12px;
+  }
+}
