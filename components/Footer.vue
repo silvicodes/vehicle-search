@@ -83,8 +83,8 @@ export default {
 
 .footer-left a {
   text-decoration: underline;
-  color: #7572FF;
-  font-weight: 500;
+  color: #55595D;
+  font-weight: 400;
   cursor: pointer;
 }
 
@@ -98,26 +98,26 @@ export default {
   padding: 6px 12px;
   font-size: 14px;
   background-color: #fff;
-  border: 1px solid #7572FF;
+  border: 1px solid #D1D6E0;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .pagination-buttons button:hover {
-  background-color: #7572FF;
+  background-color: #D1D6E0;
   color: white;
 }
 
 .arrow-buttons button {
   padding: 6px 12px;
   background-color: #fff;
-  border: 1px solid #7572FF;
+  border: 1px solid #D1D6E0;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .arrow-buttons button:hover {
-  background-color: #7572FF;
+  background-color: #D1D6E0;
   color: white;
 }
 
@@ -129,14 +129,13 @@ export default {
 .filter-button {
   padding: 6px 12px;
   font-size: 14px;
-  background-color: #fff;
-  border: 1px solid #7572FF;
+  background-color: #F6F7FB;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .filter-button:hover {
-  background-color: #7572FF;
+  background-color: #55595D;
   color: white;
 }
 
