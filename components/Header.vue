@@ -7,7 +7,11 @@
           <button
             v-for="filter in filters"
             :key="filter.value"
-            :class="['filter-button', { active: filter.value === activeFilter }]"
+            :class="[
+              'filter-button',
+              { active: filter.value === activeFilter },
+              { 'new-filter-active': filter.value === 'new' }
+            ]"
             @click="setActiveFilter(filter.value)"
           >
             {{ filter.label }}

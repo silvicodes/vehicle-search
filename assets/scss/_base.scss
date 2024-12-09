@@ -1,3 +1,17 @@
+$background-color: #fff;
+$card-background: #FFFFFF;
+$card-shadow: rgba(0, 0, 0, 0.1);
+$badge-background: #3F3A50;
+$text-color: #212121;
+$subtext-color: #757575;
+$highlight-color: red;
+$border-radius: 12px;
+$transition-speed: 0.3s;
+$font-size-small: 14px;
+$font-size-medium: 16px;
+$font-size-large: 18px;
+
+// Base Styles
 * {
   margin: 0;
   padding: 0;
@@ -15,13 +29,12 @@ img {
   height: auto;
 }
 
-// Base main page
-
+// Card Layout
 .vehicle-card {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  background: #fff;
+  background: $background-color;
   overflow-x: hidden;
 }
 
@@ -35,14 +48,13 @@ img {
 
 .vehicle-item {
   width: 300px;
-  background: #FFFFFF;
-  border-radius: 12px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  background: $card-background;
+  border-radius: $border-radius;
+  box-shadow: 0px 4px 15px $card-shadow;
   padding: 10px;
-  transition: all 0.3s ease-in-out;
+  transition: all $transition-speed ease-in-out;
   flex-shrink: 0;
 }
-
 .vehicle-image-container {
   position: relative;
 }
@@ -50,76 +62,89 @@ img {
 .vehicle-image {
   width: 100%;
   height: auto;
-  border-radius: 12px;
+  border-radius: $border-radius;
 }
 
-.used-badge, .new-badge {
+.badge {
   position: absolute;
-  top: 12px;
+  top: 5px;
   left: 12px;
   padding: 6px 10px;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: $font-size-small;
   color: #FFF;
-  background-color: #3F3A50;
+  background-color: $badge-background;
 }
 
-.new-badge {
-  background-color: #3F3A50;
+.used-badge, .new-badge {
+  @extend .badge;
 }
 
+// Vehicle Layout
 .vehicle-info {
   margin-top: 16px;
 }
 
+.vehicle-title-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .vehicle-title {
-  font-size: 18px;
+  font-size: $font-size-large;
   font-weight: 400;
-  color: #212121;
+  color: $text-color;
   margin-bottom: 8px;
 }
 
 .vehicle-model {
-  font-size: 16px;
+  font-size: $font-size-medium;
   font-weight: 300;
   color: #55595D;
   margin-bottom: 12px;
 }
 
 .vehicle-description {
-  font-size: 14px;
-  color: #757575;
+  font-size: $font-size-small;
+  color: $subtext-color;
 }
 
 .bold-price {
   font-weight: bold;
-  color: #212121;
+  color: $text-color;
 }
 
 .normal-price {
   font-weight: normal;
-  color: #757575;
+  color: $subtext-color;
 }
 
 .vehicle-finance {
-  font-size: 14px;
+  font-size: $font-size-small;
   font-weight: normal;
   color: #7572FF;
+  margin-left: 8px;
 }
 
 .strike-price {
-  font-size: 16px;
+  font-size: $font-size-medium;
   color: #000000;
   text-decoration: none;
   margin-top: 8px;
   display: inline-block;
 }
-
-.highlight-red {
-  color: red !important;
+.highlight-strike-price {
+  color: #000;
   text-decoration: line-through !important;
+  margin-left: 8px;
 }
 
+.highlight-red {
+  color: $highlight-color !important;
+}
+
+// Value Your Car Styles
 .value-your-car-container {
   display: flex;
   justify-content: center;
@@ -142,14 +167,14 @@ img {
 .value-your-car label {
   display: block;
   margin-bottom: 5px;
-  font-size: 14px;
+  font-size: $font-size-small;
 }
 
 .value-your-car input {
   width: 100%;
   padding: 8px;
   margin-bottom: 10px;
-  border-radius: 4px;
+  border-radius: 16px;
   border: 1px solid #ccc;
 }
 
@@ -164,6 +189,19 @@ img {
 
 .value-your-car button:hover {
   background-color: #5752D6;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+button img {
+  width: 24px;
+  height: 24px;
+  display: block;
 }
 
 /* Media Query for mobile devices */
