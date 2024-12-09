@@ -54,8 +54,8 @@
 .header {
   background-color: #fff;
   padding: 0 20px;
-  margin: 0 auto;
-  max-width: 1600px;
+  margin: 20px auto 0;
+  max-width: 920px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -97,9 +97,11 @@
     color: #fff;
     border-color: $primary-color;
   }
-
+  &.new-filter-active {
+    border: 1px solid #000;
+  }
   &:hover {
-    background-color: #f0f0f0;
+    background-color: $primary-color;
   }
 }
 
@@ -118,7 +120,7 @@
 .sort-button {
   padding: 0.5rem 1rem;
   border: 1px solid #ddd;
-  background-color: #f6f7fb;
+  $primary-color: #7572FF;
   border-radius: 0.5rem;
   font-size: 0.9rem;
   color: $text-color;
@@ -227,16 +229,24 @@
 
 .pagination-buttons button {
   padding: 6px 12px;
-  font-size: 14px;
-  background-color: transparent !important;
+  font-size: $font-size-base;
+  background-color: transparent; 
   border: 1px solid #D1D6E0;
-  border-radius: 5px;
+  border-radius: $border-radius;
   cursor: pointer;
+  color: $text-color;
+  font-family: $font-family-base;
+}
+
+.pagination-buttons button.active {
+  background-color: $primary-color;
+  color: #fff;
+  border-color: $primary-color;
 }
 
 .pagination-buttons button:hover {
   background-color: #D1D6E0;
-  color: transparent !important;
+  color: $primary-color;
 }
 
 .arrow-button img {

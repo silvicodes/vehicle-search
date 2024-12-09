@@ -9,26 +9,35 @@
           </div>
         </div>
         <div class="vehicle-info">
-          <h3 class="vehicle-title">
-            {{ vehicle.year }} ({{ vehicle.registration }}) {{ vehicle.make }}
-          </h3>
-          <button @click="toggleFavorite(vehicle)" :class="{ 'favorite': vehicle.isFavorite }">
-            <img :src="vehicle.isFavorite ? '/assets/icons/star-filled.svg' : '/assets/icons/star.svg'" alt="Favorite" />
-          </button>
-          <h4 class="vehicle-model">{{ vehicle.model }}</h4>
-          <p class="vehicle-description">
-            <span class="bold-price">£550.90</span>
-            <span class="normal-price"> /mo (PCP)</span>
-          </p>
-          
-          <p v-if="vehicle.strikePrice" :class="{
-              'strike-price': true,
-              'highlight-red': vehicle.year === 2019 && vehicle.make.includes('Renault Zoe')
-            }">
-            £{{ vehicle.strikePrice }} 
-            <span class="vehicle-finance"> {{ vehicle.finance }}</span>
-          </p>
-        </div>
+  <div class="vehicle-title-container">
+    <h3 class="vehicle-title">
+      {{ vehicle.year }} ({{ vehicle.registration }}) {{ vehicle.make }}
+    </h3>
+    <button @click="toggleFavorite(vehicle)" :class="{ 'favorite': vehicle.isFavorite }">
+      <img :src="vehicle.isFavorite ? '/assets/icons/star-filled.svg' : '/assets/icons/star.svg'" alt="Favorite" />
+    </button>
+  </div>
+  <h4 class="vehicle-model">{{ vehicle.model }}</h4>
+  <p class="vehicle-description">
+    <span class="bold-price">£550.90</span>
+    <span class="normal-price"> /mo (PCP)</span>
+  </p>
+  <p v-if="vehicle.strikePrice" class="strike-price">
+  <span v-if="vehicle.year === 2019 && vehicle.make === 'Renault Zoe'" class="highlight-red">
+    £{{ vehicle.strikePrice.toLocaleString() }}
+  </span>
+
+  <span v-if="vehicle.year === 2019 && vehicle.make === 'Renault Zoe'" class="highlight-strike-price">
+    £{{ vehicle.strikePrice.toLocaleString() }}
+  </span>
+  <span v-else>
+    £{{ vehicle.strikePrice.toLocaleString() }}
+  </span>
+  <span class="vehicle-finance" style="margin-left: 8px;">{{ vehicle.finance }}</span>
+</p>
+
+</div>
+
       </div>
     </div>
     <div v-if="index === 1 && idx === 1" class="value-your-car-container"></div>
@@ -76,28 +85,29 @@ export default {
     };
   },
   computed: {
-    vehicles() {
+  vehicles() {
     const vehicleStore = useVehicleStore();
     return vehicleStore.vehicles;
   },
-    chunkedVehicles() {
-      const chunkSize = this.pageSize;
-      return this.vehicles.reduce((result, item, index) => {
-        const chunkIndex = Math.floor(index / chunkSize);
-        if (!result[chunkIndex]) result[chunkIndex] = [];
-        result[chunkIndex].push(item);
-        return result;
-      }, []);
-    },
-    totalPages() {
-      return Math.ceil(this.vehicles.length / this.pageSize);
-    },
-    currentPageChunks() {
-      const startIndex = (this.currentPage - 1) * this.pageSize;
-      const endIndex = this.currentPage * this.pageSize;
-      return this.chunkedVehicles.slice(startIndex, endIndex);
-    }
+  chunkedVehicles() {
+    const chunkSize = this.pageSize;
+    return this.vehicles.reduce((result, item, index) => {
+      const chunkIndex = Math.floor(index / chunkSize);
+      if (!result[chunkIndex]) result[chunkIndex] = [];
+      result[chunkIndex].push(item);
+      return result;
+    }, []);
   },
+  totalPages() {
+    return Math.ceil(this.vehicles.length / this.pageSize);
+  },
+  currentPageChunks() {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = this.currentPage * this.pageSize;
+    return this.chunkedVehicles.slice(startIndex, endIndex);
+  }
+},
+
   methods: {
     vehicleBadge(vehicle) {
       if (vehicle.make.includes('Renault Zoe') || vehicle.make.includes('Mercedes-Benz')) {
